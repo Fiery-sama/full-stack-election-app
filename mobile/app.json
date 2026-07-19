@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "mobile",
+    "name": "Election Data App",
     "slug": "election-data-viewer",
     "version": "1.0.0",
     "orientation": "portrait",
