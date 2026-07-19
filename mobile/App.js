@@ -114,6 +114,7 @@ export default function App() {
         <TextInput
           style={styles.input}
           placeholder="Enter booth name or number..."
+          placeholderTextColor="#94A3B8"
           value={searchQuery}
           onChangeText={setSearchQuery}
           onSubmitEditing={searchBooth}
