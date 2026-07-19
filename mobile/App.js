@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView, Activi
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://192.168.0.192:8000/api';
+const API_URL = process.env.EXPO_PUBLIC_API_URL || 'https://election-backend-74w1.onrender.com/api';
 
 export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
