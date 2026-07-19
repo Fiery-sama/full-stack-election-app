@@ -1,6 +1,7 @@
 import os
 import logging
 from fastapi import FastAPI, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import or_
@@ -74,7 +75,7 @@ def search_booths(query: str, db: Session = Depends(get_db)):
     return booths
 
 @app.post('/api/login', response_model=schemas.Token)
-def login(request: schemas.LoginRequest, db: Session = Depends(get_db)):
+def login(request: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.username == request.username).first()
     if not user or not auth.verify_password(request.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid username or password")

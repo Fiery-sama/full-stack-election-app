@@ -156,7 +156,15 @@ function App() {
   const handleLogin = (e) => {
     e.preventDefault()
     setLoginError('')
-    axios.post(`${API_URL}/login`, { username, password })
+    const formData = new URLSearchParams()
+    formData.append('username', username)
+    formData.append('password', password)
+    
+    axios.post(`${API_URL}/login`, formData, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    })
       .then(res => {
         const t = res.data.access_token
         setToken(t)
