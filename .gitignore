@@ -3,6 +3,7 @@
 AGENTS.md
 CLAUDE.md
 .gemini/
+.claude/
 
 # Node
 node_modules/
